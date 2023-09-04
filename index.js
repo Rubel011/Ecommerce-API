@@ -7,6 +7,9 @@ const { connection } = require('./configs/db');
 const { userRouter } = require('./routes/userRoute');
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./configs/swaggerConfig'); // Import the Swagger configuration
+const { productRouter } = require('./routes/productRoute');
+const { categoryRouter } = require('./routes/categoryRoute');
+const { orderRouter } = require('./routes/orderRoute');
 
 
 // Middleware to parse JSON request bodies
@@ -31,6 +34,15 @@ app.get("/", async (req, res) => {
 
 // Route for user-related endpoints
 app.use("/users", userRouter);
+
+// Route for Product-related endpoints
+app.use("/products", productRouter);
+
+// Route for category-related endpoints
+app.use("/categories", categoryRouter);
+
+// Route for product-related endpoints
+app.use("/orders", orderRouter);
 
 // Start the server
 app.listen(port, async() => {

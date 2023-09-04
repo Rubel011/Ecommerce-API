@@ -164,7 +164,7 @@ const userRouter = express.Router();
  * @desc    Get all users
  * @access  Public
  */
-userRouter.get("/", getAllUsers);
+userRouter.get("/",authenticateToken,blacklistMiddleware,getAllUsers);
 
 /**
  * @route   POST /users/register
