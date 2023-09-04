@@ -10,7 +10,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: "http://localhost:1500",
+        url: "https://ecommerce-api-8iaf.onrender.com/",
       }, {
         url: "http://localhost:1500",
       }
