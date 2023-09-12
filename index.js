@@ -1,8 +1,8 @@
 const express = require('express');
 const cors= require('cors');
 const app = express();
-const port = process.env.PORT || 1500;
 require("dotenv").config();
+const port = process.env.PORT || 1500;
 const { connection } = require('./configs/db');
 const { userRouter } = require('./routes/userRoute');
 const swaggerUi = require('swagger-ui-express');
