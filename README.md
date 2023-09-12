@@ -2,7 +2,7 @@
 
 Welcome to the Ecommerce API! This API provides authentication, product management, and order management functionalities.
 
-## API Documentation
+## API Documentation: for Swagger
 
 You can explore the API documentation using Swagger UI. Access the documentation by navigating to:
     https://ecommerce-api-8iaf.onrender.com/api-docs
