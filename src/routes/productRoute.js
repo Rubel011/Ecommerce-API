@@ -1,8 +1,14 @@
-const express = require('express');
+const express = require("express");
 const productRouter = express.Router();
-const { authenticateToken } = require('../middleware/authentication');
-const { getProductByCategoryId, getProductDetailsById, addProduct, deleteProduct, getAllProducts } = require('../controller/productController');
-const blacklistMiddleware = require('../middleware/blacklistMiddleware');
+const { authenticateToken } = require("../middleware/authentication");
+const {
+  getProductByCategoryId,
+  getProductDetailsById,
+  addProduct,
+  deleteProduct,
+  getAllProducts,
+} = require("../controller/productController");
+const blacklistMiddleware = require("../middleware/blacklistMiddleware");
 
 /**
  * @swagger
@@ -48,7 +54,6 @@ const blacklistMiddleware = require('../middleware/blacklistMiddleware');
  *         availability: true
  *         description: "This is a sample product."
  */
-
 
 /**
  * @swagger
@@ -96,7 +101,6 @@ const blacklistMiddleware = require('../middleware/blacklistMiddleware');
  *         categoryName: "Electronics"
  */
 
-
 /**
  * @swagger
  * /products/category/{categoryId}:
@@ -120,7 +124,7 @@ const blacklistMiddleware = require('../middleware/blacklistMiddleware');
  *       '500':
  *         description: Internal Server Error
  */
-productRouter.get('/category/:categoryId', getProductByCategoryId);
+productRouter.get("/category/:categoryId", getProductByCategoryId);
 
 /**
  * @swagger
@@ -138,7 +142,7 @@ productRouter.get('/category/:categoryId', getProductByCategoryId);
  *       '500':
  *         description: Internal Server Error
  */
-productRouter.get('/getAll', getAllProducts);
+productRouter.get("/getAll", getAllProducts);
 
 /**
  * @swagger
@@ -165,7 +169,7 @@ productRouter.get('/getAll', getAllProducts);
  *       '500':
  *         description: Internal Server Error
  */
-productRouter.get('/:id', getProductDetailsById);
+productRouter.get("/:id", getProductDetailsById);
 
 /**
  * @swagger
@@ -191,7 +195,12 @@ productRouter.get('/:id', getProductDetailsById);
  *       '500':
  *         description: Internal Server Error
  */
-productRouter.post('/create', authenticateToken, blacklistMiddleware, addProduct);
+productRouter.post(
+  "/create",
+  authenticateToken,
+  blacklistMiddleware,
+  addProduct
+);
 
 /**
  * @swagger
@@ -214,7 +223,11 @@ productRouter.post('/create', authenticateToken, blacklistMiddleware, addProduct
  *       '500':
  *         description: Internal Server Error
  */
-productRouter.delete('/:productId', authenticateToken, blacklistMiddleware, deleteProduct);
-
+productRouter.delete(
+  "/:productId",
+  authenticateToken,
+  blacklistMiddleware,
+  deleteProduct
+);
 
 module.exports = { productRouter };

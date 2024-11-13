@@ -1,9 +1,14 @@
-const express = require('express');
-const { authenticateToken } = require('../middleware/authentication');
-const { getAllUsers, registerUser, loginUser, userProfile, logoutAndBlacklistUser } = require('../controller/userController.js');
-const blacklistMiddleware = require('../middleware/blacklistMiddleware');
+const express = require("express");
+const { authenticateToken } = require("../middleware/authentication");
+const {
+  getAllUsers,
+  registerUser,
+  loginUser,
+  userProfile,
+  logoutAndBlacklistUser,
+} = require("../controller/userController.js");
+const blacklistMiddleware = require("../middleware/blacklistMiddleware");
 const userRouter = express.Router();
-
 
 /**
  * @swagger
@@ -11,7 +16,6 @@ const userRouter = express.Router();
  *   name: Users
  *   description: User management
  */
-
 
 /**
  * @swagger
@@ -55,7 +59,6 @@ const userRouter = express.Router();
  *     bearerFormat: JWT
  */
 
-
 /**
  * @swagger
  * /users:
@@ -87,13 +90,12 @@ const userRouter = express.Router();
  *         description: Internal server error.
  */
 
-
 /**
  * @route   GET /users
  * @desc    Get all users
  * @access  Public
  */
-userRouter.get("/",authenticateToken,blacklistMiddleware,getAllUsers);
+userRouter.get("/", authenticateToken, blacklistMiddleware, getAllUsers);
 
 /**
  * @swagger
@@ -125,7 +127,6 @@ userRouter.get("/",authenticateToken,blacklistMiddleware,getAllUsers);
  *       500:
  *         description: Internal server error.
  */
-
 
 /**
  * @route   POST /users/register
@@ -200,13 +201,12 @@ userRouter.post("/login", loginUser);
  *         description: Internal server error.
  */
 
-
 /**
  * @route   GET /users/profile
  * @desc    Get user profile (protected route)
  * @access  Private
  */
-userRouter.get("/profile", authenticateToken,blacklistMiddleware, userProfile);
+userRouter.get("/profile", authenticateToken, blacklistMiddleware, userProfile);
 
 /**
  * @swagger
@@ -225,13 +225,16 @@ userRouter.get("/profile", authenticateToken,blacklistMiddleware, userProfile);
  *         description: Internal server error.
  */
 
-
-
 /**
  * @route   POST /users/logout
  * @desc    Log out user and blacklist token
  * @access  Private
  */
-userRouter.post('/logout', authenticateToken,blacklistMiddleware, logoutAndBlacklistUser);
+userRouter.post(
+  "/logout",
+  authenticateToken,
+  blacklistMiddleware,
+  logoutAndBlacklistUser
+);
 
 module.exports = { userRouter };
