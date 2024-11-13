@@ -9,7 +9,7 @@
 ## API Documentation: for Swagger
 
 You can explore the API documentation using Swagger UI. Access the documentation by navigating to:
-https://ecommerce-api-8iaf.onrender.com/api-docs
+https://ecommerce-api-1.up.railway.app/api-docs
 
 ## Functionality
 
@@ -23,7 +23,7 @@ The API includes the following functionality:
 
 ## Backend Deployment
 
-The backend of this project is deployed and can be accessed via the following link: [Backend Deployment Link](https://ecommerce-api-8iaf.onrender.com/)
+The backend of this project is deployed and can be accessed via the following link: [Backend Deployment Link](https://ecommerce-api-1.up.railway.app/)
 
 ## Backend Routes
 
